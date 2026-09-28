@@ -1,0 +1,54 @@
+generated: '2026-09-28'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 3
+  own: 3
+  other_domain: 0
+  platform: 0
+  roles:
+  - api
+  - partner
+  - website
+hosts:
+- host: api.billergenie.com
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: billergenie.com
+  role: api
+  relation: own
+- host: merchant.billergenie.com
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - SignUp
+  - Website
+  serves:
+  - docs
+  - cdn
+  vendor: cloudflare
+  registrable_domain: billergenie.com
+  role: website
+  relation: own
+- host: partners.billergenie.com
+  found_by:
+  - probed
+  - site-links
+  - namespace-probe
+  - contract-discovery
+  - well-known
+  types: []
+  serves: []
+  title: Partner Portal | Biller Genie | Biller Genie Partner Portal | Biller Genie Partn
+  status: 200
+  registrable_domain: billergenie.com
+  role: partner
+  relation: own

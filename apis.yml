@@ -1,23 +1,73 @@
 aid: billergenie
+
 name: Billergenie
-description: 'Billergenie is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+
+description: Billergenie is a SaaS platform that offers merchants a comprehensive billing and payment solution. The service includes account management,
+  invoicing, subscription handling, and integrated payment processing. It provides a web portal for merchants to manage their business, view analytics,
+  and configure licensing. The platform emphasizes security and compliance, offering terms of use and privacy policies directly through its merchant
+  portal.
+
 url: https://raw.githubusercontent.com/api-evangelist/billergenie/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-09-28 (modular-v1; was harvest)
+
 specificationVersion: '0.20'
+
 created: '2026-09-28'
+
 modified: '2026-09-28'
+
 tags:
 - Company
-apis: []
+- SaaS
+- Billing
+- Payments
+- Merchant
+- Platform
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+
 common:
+- type: WellKnown
+  url: well-known/billergenie-well-known.yml
+- type: Hosts
+  url: hosts/billergenie-hosts.yml
+- type: Vendors
+  url: vendors/billergenie-vendors.yml
+- type: SignUp
+  url: https://merchant.billergenie.com/Account/Register/
+- type: DomainSecurity
+  url: security/billergenie-domain-security.yml
 - type: Website
-  url: https://equityzen.com/company/billergenie
+  url: https://merchant.billergenie.com
+
+apis:
+- name: Biller Genie Merchant API
+  description: API for merchant portal operations such as account management and billing.
+  humanURL: https://merchant.billergenie.com/Account/Login?ReturnUrl=%2F
+  baseURL: null
+  aid: billergenie:biller-genie-merchant-api
+
+x-coverage:
+  state: unreadable
+  reason: no-machine-readable-spec
+  detail: OpenAPI spec endpoints on api.billergenie.com all return HTTP 530, indicating no machine‑readable contract is published.
+  evidence:
+  - url: https://api.billergenie.com/openapi.json
+    status: 530
+  checked: '2026-09-28'
+x-enrichment:
+  date: '2026-09-28'
+  status: enriched
+  artifacts_added: 7
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local,regulatory=local
